@@ -48,6 +48,7 @@ export default class Card extends React.Component {
       positionChange: [0, 0],
       dragging: false,
       startWidth: 0,
+      draggingTransitionEnded: true,
     };
     this.ref = React.createRef();
     this.mouseUp = this.mouseUp.bind(this);
@@ -113,6 +114,9 @@ export default class Card extends React.Component {
     setTimeout(() => {
       this.setState({ dragging: false });
     }, 0);
+    setTimeout(() => {
+      this.setState({ draggingTransitionEnded: true });
+    }, 250);
     const cardIDToMoveTo = this.getAndUpdateCardIDToMoveTo();
     if (cardIDToMoveTo) {
       const cardToMoveTo = this.props.getCardByID(cardIDToMoveTo);
@@ -275,9 +279,9 @@ export default class Card extends React.Component {
     }
     let cardClassname = `px-4 flex items-center border-b cursor-default `;
     if (this.props.highlighted) {
-      cardClassname += "bg-blue-100 border-blue-100";
+      cardClassname += "bg-blue-100 border-t border-blue-100";
     } else if (card.pinned) {
-      cardClassname += "bg-yellow-100 border-yellow-100";
+      cardClassname += "bg-yellow-100 border-t border-yellow-100";
     } else {
       cardClassname += "bg-white border-gray-200";
     }
@@ -292,10 +296,11 @@ export default class Card extends React.Component {
         positionChange: [0, 0],
         startWidth: getCardRect().width,
         dragging: true,
+        draggingTransitionEnded: false,
       });
     };
     if (this.state.dragging && step !== "move") {
-      this.setState({ dragging: false });
+      this.setState({ dragging: false, draggingTransitionEnded: true });
     }
     return (
       <>
@@ -305,6 +310,8 @@ export default class Card extends React.Component {
           data-card-id={card.id}
           data-col-id={colID}
           style={{
+            transition: "background-color .25s",
+            marginTop: this.props.highlighted || card.pinned ? "-1px" : "0",
             ...(this.state.dragging
               ? {
                   position: "fixed",
@@ -313,10 +320,9 @@ export default class Card extends React.Component {
                   transform: `translate(${this.state.positionChange[0]}px, ${this.state.positionChange[1]}px)`,
                   zIndex: 1000,
                   boxShadow: "0px 3px 8px rgba(0,0,0,0.075)",
-                  cursor: "grab",
                   width: `${this.state.startWidth}px`,
                 }
-              : { transition: "transform 0.25s" }),
+              : { transition: "background-color .25s, transform 0.25s" }),
           }}
           onMouseEnter={() => this.setState({ hovered: true })}
           onMouseLeave={() => this.setState({ hovered: false })}
@@ -324,7 +330,7 @@ export default class Card extends React.Component {
           <div
             className={`flex flex-1 items-center ${
               this.props.childCards.length > 0 ? "py-3" : cardPaddingClassname
-            }`}
+            } ${step === "move" ? "cursor-move" : ""}`}
             onMouseDown={onMouseDown}
           >
             <span
@@ -396,12 +402,12 @@ export default class Card extends React.Component {
             {rightSide}
           </div>
         </div>
-        {this.state.dragging ? (
+        {this.state.dragging || !this.state.draggingTransitionEnded ? (
           <div
             className={cardClassname}
             style={{
               width: "100%",
-              height: `${getCardRect().height}px`,
+              height: `${this.state.dragging ? getCardRect().height : 0}px`,
               display: "block",
             }}
           ></div>
