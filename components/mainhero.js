@@ -28,14 +28,14 @@ export default function MainHero() {
               <div className="mx-auto inline-grid grid-cols-2 gap-3 sm:gap-5">
                 <button
                   onClick={() => newRetro()}
-                  className="transition-all flex items-center justify-center px-6 py-4 border border-transparent text-lg font-medium rounded-md shadow-sm bg-purple-600 text-white hover:bg-purple-700 sm:px-8"
+                  className="transition-all flex items-center justify-center px-6 py-4 border border-transparent text-lg font-medium rounded-md bg-purple-600 text-white hover:bg-purple-700 sm:px-8"
                 >
                   <span class="hidden sm:block">Start a</span>
                   <span class="block sm:hidden">New</span>&nbsp;Retro
                 </button>
                 <a
                   href="#features"
-                  className="transition-all flex items-center justify-center px-6 py-4 border-2 border-purple-600 text-purple-600 text-lg font-medium rounded-md shadow-sm text-white hover:bg-purple-600 hover:text-white sm:px-8"
+                  className="transition-all flex items-center justify-center px-6 py-4 border-2 border-purple-600 text-purple-600 text-lg font-medium rounded-md text-white hover:bg-purple-600 hover:text-white sm:px-8"
                 >
                   Features
                 </a>

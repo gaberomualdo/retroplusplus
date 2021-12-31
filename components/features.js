@@ -39,21 +39,21 @@ const features = [
     icon: UsersIcon,
   },
   {
-    name: "Group Similar Items",
+    name: "Pin & Check Items",
     description:
-      "Items in retrospectives can be grouped together to help you identify similar points brought up by your team.",
+      "Pin items being discussed and check items that have been discussed already. This is useful to keep the team focused and to keep the discussion organized.",
     icon: PencilAltIcon,
   },
   {
     name: "Easily Sharable",
     description:
-      "Easily share your a link to retrospective with your team with the instant link copy button.",
+      "Easily share your a link to retrospective with your team with the instant link copy button. Links to retros are permanent and can be shared with anyone.",
     icon: LinkIcon,
   },
   {
-    name: "Vote on Items",
+    name: "Vote & Group Items",
     description:
-      "Upvote & downvote Items to help your team understand which strengths and weaknesses are most important to discuss.",
+      "Upvote & downvote items, and group them together to help your team understand which strengths and weaknesses are most important to discuss.",
     icon: LightBulbIcon,
   },
 ];

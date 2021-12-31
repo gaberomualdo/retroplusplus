@@ -111,7 +111,7 @@ const RetroPage = () => {
       </Head>
       <div className="w-full min-h-screen flex flex-col bg-gray-100">
         <div
-          className="z-50 sticky top-0 w-full border-b border-gray-200 shadow-md bg-white flex justify-between items-center h-20 px-4"
+          className="z-50 sticky top-0 w-full border-gray-200 shadow-md bg-white flex justify-between items-center h-20 px-4"
           style={{ flexShrink: 0 }}
         >
           <div className="flex items-center">
@@ -230,7 +230,7 @@ const RetroPage = () => {
               <button
                 onClick={() => setStep(steps[currentStepIx + 1].id)}
                 type="button"
-                className="ml-3 transition-all inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm rounded text-white bg-purple-600 hover:bg-purple-700 outline-none"
+                className="ml-3 transition-all inline-flex items-center px-3 py-2 border border-transparent text-sm rounded text-white bg-purple-600 hover:bg-purple-700 outline-none"
               >
                 Next Step
                 <ChevronRightIcon
@@ -242,7 +242,7 @@ const RetroPage = () => {
               <button
                 onClick={() => window.open("/", "_self")}
                 type="button"
-                className="ml-3 transition-all inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm rounded text-white bg-purple-600 hover:bg-purple-700 outline-none"
+                className="ml-3 transition-all inline-flex items-center px-3 py-2 border border-transparent text-sm rounded text-white bg-purple-600 hover:bg-purple-700 outline-none"
               >
                 Start a New Retro
                 <ChevronRightIcon
@@ -257,7 +257,7 @@ const RetroPage = () => {
           className={
             retro.step === "review"
               ? "flex-1 p-4 flex"
-              : "p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 flex-1"
+              : "p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 xl:flex flex-1"
           }
         >
           {retro.step === "review" ? (
@@ -318,7 +318,7 @@ const RetroPage = () => {
               return (
                 <div
                   className={
-                    "overflow-y-auto bg-white border shadow rounded-md pb-6"
+                    "flex-1 overflow-y-auto bg-white border shadow-lg rounded-md pb-6"
                   }
                 >
                   <div>

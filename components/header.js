@@ -20,7 +20,7 @@ export default function Header() {
           </a>
           <button
             onClick={() => newRetro()}
-            className="transition-all ml-8 whitespace-nowrap inline-flex items-center justify-center bg-purple-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:bg-purple-700"
+            className="transition-all ml-8 whitespace-nowrap inline-flex items-center justify-center bg-purple-600 bg-origin-border px-4 py-2 border border-transparent rounded-md text-base font-medium text-white hover:bg-purple-700"
           >
             Start a Retro
           </button>
