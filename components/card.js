@@ -314,6 +314,7 @@ export default class Card extends React.Component {
             marginTop: this.props.highlighted || card.pinned ? "-1px" : "0",
             ...(this.state.dragging
               ? {
+                  userSelect: "none",
                   position: "fixed",
                   left: `${this.state.startPosition[0]}px`,
                   top: `${this.state.startPosition[1]}px`,
