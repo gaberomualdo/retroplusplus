@@ -95,6 +95,15 @@ const RetroPage = () => {
   const setStep = (step) => addEvent({ type: "set-step", step });
   const currentStepIx = steps.findIndex((e) => e.id === retro.step);
 
+  const getCardsInColumn = (columnID) => {
+    const getUpvotes = (card) => card.upvoters.length - card.downvoters.length;
+    let cards = retro.getCards().filter((e) => e.parentCardID === columnID);
+    if (retro.step === "actions" || retro.step === "review") {
+      cards.sort((a, b) => getUpvotes(b) - getUpvotes(a));
+    }
+    return cards;
+  };
+
   return (
     <>
       <Head>
@@ -106,11 +115,13 @@ const RetroPage = () => {
           style={{ flexShrink: 0 }}
         >
           <div className="flex items-center">
-            <img
-              src="/logo.png"
-              alt="Retro++"
-              className="hidden xl:block h-8 w-auto mr-8"
-            />
+            <a href="/">
+              <img
+                src="/logo.png"
+                alt="Retro++"
+                className="hidden xl:block h-8 w-auto mr-8"
+              />
+            </a>
             <ol
               role="list"
               className="lg:border lg:border-gray-200 rounded-md md:flex"
@@ -259,10 +270,9 @@ const RetroPage = () => {
               }}
             >
               {columns.map((col, i) => {
-                const cards = retro
-                  .getCards()
-                  .filter((e) => e.parentCardID === col.id);
+                let cards = getCardsInColumn(col.id);
                 if (cards.length === 0) return null;
+
                 return (
                   <>
                     <h1 className="text-2xl font-semibold capitalize">
@@ -297,9 +307,7 @@ const RetroPage = () => {
               ) {
                 return null;
               }
-              const cards = retro
-                .getCards()
-                .filter((e) => e.parentCardID === col.id);
+              const cards = getCardsInColumn(col.id);
               if (
                 retro.step !== "brainstorm" &&
                 col.id !== "actions" &&

@@ -33,8 +33,9 @@ function ChildCard({ card, moveOut, step }) {
         className={`transition-all h-4 w-4 ml-0.5 mr-0.5 ${
           hovered ? "opacity-100" : "opacity-0"
         }`}
+        style={{ flexShrink: 0 }}
       />
-      <p className="text-sm">{card.text}</p>
+      <p className="text-sm text-left">{card.text}</p>
     </button>
   );
 }
@@ -367,7 +368,8 @@ export default class Card extends React.Component {
                     style={{
                       wordWrap: "break-word",
                       overflowWrap: "break-word",
-                      wordBreak: "break-all",
+                      wordBreak: "break-word",
+                      userSelect: step === "move" ? "none" : "initial",
                     }}
                   >
                     {card.text}

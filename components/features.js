@@ -60,16 +60,20 @@ const features = [
 
 export default function Features() {
   return (
-    <div
-      className="border-t border-gray-200 bg-gray-50 pt-6 pb-4"
-      id="features"
-    >
-      <div className="max-w-6xl mx-auto py-16">
-        <div className="grid grid-cols-1 gap-x-4 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
+    <div className="bg-white md:pt-6 md:pb-4" id="features">
+      <div className="max-w-6xl mx-auto pt-12 md:py-12">
+        <p className="text-3xl font-bold text-gray-900 text-center px-3">
+          Features
+        </p>
+        <p className="mt-3 mb-10 text-lg text-gray-500 text-center px-3">
+          A couple useful pieces of functionality that make Retro++ a great tool
+          for your team.
+        </p>
+        <div className="border-gray-200 border-t md:border-none grid grid-cols-1 gap-x-4 md:gap-y-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6">
           {features.map((feature) => (
             <div
               key={feature.name}
-              className="transform transition-all px-6 py-8 border border-gray-200 rounded-lg hover:bg-white hover:scale-105 hover:shadow cursor-default"
+              className="transform transition-all px-6 py-8 border-b md:border border-gray-200 md:rounded-lg md:hover:bg-white md:hover:scale-105 md:hover:shadow md:cursor-default"
             >
               <div className="flex justify-center">
                 <span className="flex items-center justify-center h-12 w-12 rounded-md bg-purple-600 bg-opacity-10">
