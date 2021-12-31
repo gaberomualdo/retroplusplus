@@ -13,6 +13,7 @@ import {
   columns,
   boxStyles,
   formatNum,
+  newRetro,
 } from "../lib/util";
 import { uuid } from "uuidv4";
 import {
@@ -240,7 +241,7 @@ const RetroPage = () => {
               </button>
             ) : (
               <button
-                onClick={() => window.open("/", "_self")}
+                onClick={() => newRetro()}
                 type="button"
                 className="ml-3 transition-all inline-flex items-center px-3 py-2 border border-transparent text-sm rounded text-white bg-purple-600 hover:bg-purple-700 outline-none"
               >
