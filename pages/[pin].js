@@ -242,7 +242,13 @@ const RetroPage = () => {
             )}
           </div>
         </div>
-        <div className="flex-1 p-4 flex">
+        <div
+          className={
+            retro.step === "review"
+              ? "flex-1 p-4 flex"
+              : "p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 flex-1"
+          }
+        >
           {retro.step === "review" ? (
             <div
               className="p-8 bg-white rounded-lg shadow-lg overflow-scroll"
@@ -304,8 +310,7 @@ const RetroPage = () => {
               return (
                 <div
                   className={
-                    (i < columns.length - 1 ? "mr-3" : "") +
-                    " flex-1 overflow-y-auto bg-white border shadow rounded-mdd"
+                    "overflow-y-auto bg-white border shadow rounded-md pb-6"
                   }
                 >
                   <div>
