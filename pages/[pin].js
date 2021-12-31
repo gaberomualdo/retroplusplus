@@ -205,7 +205,7 @@ const RetroPage = () => {
           <div className="flex">
             <div className="flex items-center">
               <UsersIcon className="mr-1 w-5 h-5 text-gray-400" />
-              <p className="text-gray-500 text-lg mr-2 xl:mr-5">
+              <p className="text-gray-500 text-md mr-2 xl:mr-5">
                 {retro.users.length}
               </p>
             </div>
