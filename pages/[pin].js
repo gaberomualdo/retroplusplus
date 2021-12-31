@@ -126,7 +126,7 @@ const RetroPage = () => {
             </a>
             <ol
               role="list"
-              className="lg:border lg:border-gray-200 rounded-md md:flex"
+              className="overflow-hidden lg:border lg:border-gray-200 rounded-md md:flex"
             >
               {steps.map((step, stepIdx) => (
                 <li key={step.name} className="relative flex">
