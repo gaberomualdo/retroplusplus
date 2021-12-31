@@ -1,0 +1,10 @@
+{
+  "rules": {
+    ".read": false,
+    "$pin": {
+      ".validate": "$pin.matches(/^[0-9]+$/)",
+      ".read": true,
+      ".write": true
+    }
+  }
+}
