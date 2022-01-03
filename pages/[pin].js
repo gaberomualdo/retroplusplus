@@ -22,6 +22,7 @@ import {
   DownloadIcon,
 } from "@heroicons/react/solid";
 import { UsersIcon } from "@heroicons/react/outline";
+import Timer from "../components/timer";
 
 const asArray = (e) => {
   if (!e) return [];
@@ -111,6 +112,7 @@ const RetroPage = () => {
       <Head>
         <title>{makeTitle(`Retro ${pin || ""}`)}</title>
       </Head>
+      <Timer endTime={retro.timerTime} addEvent={addEvent} />
       <div className="w-full min-h-screen flex flex-col bg-gray-100">
         <div
           className="z-50 sticky top-0 w-full border-gray-200 shadow-md bg-white flex justify-between items-center h-20 px-4"
@@ -203,7 +205,7 @@ const RetroPage = () => {
           </div>
 
           <div className="flex">
-            <div className="flex items-center">
+            <div className="hidden sm:flex items-center">
               <UsersIcon className="mr-1 w-5 h-5 text-gray-400" />
               <p className="text-gray-500 text-md mr-2 xl:mr-5">
                 {retro.users.length}

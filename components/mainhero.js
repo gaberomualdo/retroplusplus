@@ -30,8 +30,8 @@ export default function MainHero() {
                   onClick={() => newRetro()}
                   className="transition-all flex items-center justify-center px-6 py-4 border border-transparent text-lg font-medium rounded-md bg-purple-600 text-white hover:bg-purple-700 sm:px-8"
                 >
-                  <span class="hidden sm:block">Start a</span>
-                  <span class="block sm:hidden">New</span>&nbsp;Retro
+                  <span className="hidden sm:block">Start a</span>
+                  <span className="block sm:hidden">New</span>&nbsp;Retro
                 </button>
                 <a
                   href="#features"
