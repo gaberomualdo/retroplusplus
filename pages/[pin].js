@@ -298,7 +298,7 @@ const RetroPage = () => {
                             <li className="text-lg text-gray-600">{c.text}</li>
                             {subCards.map((sc) => (
                               <li className="text-lg text-gray-600 ml-6">
-                                {c.text}
+                                {sc.text || c.text}
                               </li>
                             ))}
                           </>
