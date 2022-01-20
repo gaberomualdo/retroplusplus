@@ -49,7 +49,7 @@ export default class Timer extends Component {
     const displayTimeSeconds = formatNum(Math.floor(timeSeconds % 60));
     return (
       <div
-        className="duration-300 fixed shadow-lg hidden md:block bg-white right-5 border border-gray-200 transition-all rounded-t-md"
+        className="z-50 duration-300 fixed shadow-lg hidden md:block bg-white right-5 border border-gray-200 transition-all rounded-t-md"
         style={{
           top: "100%",
           transform: `translateY(${this.state.open ? "-100%" : "-2.5rem"})`,
